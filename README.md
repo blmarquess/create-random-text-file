@@ -21,7 +21,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 Faça o build da aplicação usando o Cargo:
 
 ```sh
-cargo build
+cargo build --release
 ```
 
 Mova o aplicativo para uma pasta de aplicações, por exemplo, `/opt`, e adicione um link simbólico para o diretório de binários do sistema.
@@ -29,8 +29,11 @@ Mova o aplicativo para uma pasta de aplicações, por exemplo, `/opt`, e adicion
 ### Linux
 
 ```sh
-sudo mv target/debug/mts /opt
-sudo ln -s /opt/mts /usr/bin/mts
+sudo mkdir -p /opt/make_text_from_size
+
+sudo mv target/release/mts /opt/make_text_from_size
+
+sudo ln -s /opt/make_text_from_size/mts /usr/bin/mts
 ```
 
 ### macOS
